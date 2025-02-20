@@ -9,6 +9,7 @@ public interface PatientService {
     public Mono<Void> delete(Long id);
     public Flux<Patient> findAll();
     public Mono<Patient> findById(Long id);
-    public Flux<Patient> findByNameStartWith(String firstName);
+    public Flux<Patient> findByNameContainIgnoreCase(String name);
+    public Flux<Patient> findByPatientTypeAndGender(String patientType, String gender);
 
 }

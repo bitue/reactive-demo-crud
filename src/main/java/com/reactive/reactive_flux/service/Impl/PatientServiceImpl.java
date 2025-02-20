@@ -50,7 +50,12 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public Flux<Patient> findByNameStartWith(String firstName) {
-        return null;
+    public Flux<Patient> findByNameContainIgnoreCase(String name) {
+        return patientRepository.findByNameContainingIgnoreCase(name);
+    }
+
+    @Override
+    public Flux<Patient> findByPatientTypeAndGender(String patientType, String gender) {
+        return patientRepository.findByPatientTypeAndGenderQueryCustom(patientType, gender);
     }
 }

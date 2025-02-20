@@ -47,4 +47,15 @@ public class PatientController {
     public Flux<Patient> lazyLoad(){
         return patientService.findAll().delayElements(Duration.ofMillis(2000)).log().doOnComplete(()-> System.out.println(Thread.currentThread().getName()));
     }
+
+    @GetMapping("/search/{name}")
+    public Flux<Patient> getPatientByNameContaining(@PathVariable String name){
+        System.out.println(name);
+        return patientService.findByNameContainIgnoreCase(name);
+    }
+
+    @GetMapping("/searchQuery")
+    public Flux<Patient> getPatientByGenderAndPatientTypeCustom(@RequestParam String gender, @RequestParam String patientType){
+        return patientService.findByPatientTypeAndGender(patientType, gender);
+    }
 }

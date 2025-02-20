@@ -44,6 +44,12 @@
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		<!-- LIQUIBASE DEPENDENCY  -->
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<version>4.22.0</version> <!-- Use the latest version available -->
+		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/io.asyncer/r2dbc-mysql -->
 		<dependency>
